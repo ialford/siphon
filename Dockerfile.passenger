@@ -11,7 +11,7 @@ ENV HOME /home
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
 
-# RUN bash -lc 'rvm install ruby-2.6.7'
+RUN bash -lc 'rvm install ruby-2.6.7'
 RUN bash -lc 'rvm --default use ruby-2.6.7'
 
 ENV PASSENGER_RUN_ENV development
