@@ -57,15 +57,17 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD webapp.conf /etc/nginx/sites-enabled/webapp.conf
 
 # Copy Aleph cron file to the cron.d directory
-COPY import_aleph_crontab.txt /etc/cron.d/import_aleph_crontab.txt
+# COPY import_aleph_crontab.txt /etc/cron.d/import_aleph_crontab.txt
  
 # Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/import_aleph_crontab.txt
+# RUN chmod 0644 /etc/cron.d/import_aleph_crontab.txt
 
 # Apply cron job
-RUN crontab /etc/cron.d/import_aleph_crontab.txt
+# RUN crontab /etc/cron.d/import_aleph_crontab.txt
  
 # Set up application to run
+RUN chmod +x $APP_DIR/import.sh
+
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
