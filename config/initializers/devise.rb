@@ -234,14 +234,24 @@ Devise.setup do |config|
 
   # Okta
   require 'omniauth-oktaoauth'
-  okta_issuer = Rails.application.secrets.okta["base_auth_url"] + Rails.application.secrets.okta["auth_server_id"]
+  # okta_issuer = Rails.application.secrets.okta["base_auth_url"] + Rails.application.secrets.okta["auth_server_id"]
+  # config.omniauth(:oktaoauth,
+  #               Rails.application.secrets.okta["client_id"],
+  #               Rails.application.secrets.okta["client_secret"],
+  #               :scope => 'openid profile email netid',
+  #               :fields => ['profile', 'email', 'netid'],
+  #               :client_options => {site: okta_issuer, authorize_url: okta_issuer + "/v1/authorize", token_url: okta_issuer + "/v1/token"},
+  #               :auth_server_id => Rails.application.secrets.okta["auth_server_id"],
+  #               :issuer => okta_issuer,
+  #               :strategy_class => OmniAuth::Strategies::Oktaoauth)
   config.omniauth(:oktaoauth,
                 Rails.application.secrets.okta["client_id"],
                 Rails.application.secrets.okta["client_secret"],
                 :scope => 'openid profile email netid',
                 :fields => ['profile', 'email', 'netid'],
-                :client_options => {site: okta_issuer, authorize_url: okta_issuer + "/v1/authorize", token_url: okta_issuer + "/v1/token"},
+                :client_options => {site: Rails.application.secrets.okta["base_auth_url"] + Rails.application.secrets.okta["auth_server_id"], authorize_url: Rails.application.secrets.okta["base_auth_url"] + Rails.application.secrets.okta["auth_server_id"] + "/v1/authorize", token_url: Rails.application.secrets.okta["base_auth_url"] + Rails.application.secrets.okta["auth_server_id"] + "/v1/token"},
                 :auth_server_id => Rails.application.secrets.okta["auth_server_id"],
-                :issuer => okta_issuer,
+                :issuer => Rails.application.secrets.okta["base_auth_url"] + Rails.application.secrets.okta["auth_server_id"],
                 :strategy_class => OmniAuth::Strategies::Oktaoauth)
+
 end
