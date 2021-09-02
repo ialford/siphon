@@ -234,7 +234,7 @@ Devise.setup do |config|
 
   # Okta
   require 'omniauth-oktaoauth'
-  okta_issuer = "https://nd.okta.com/oauth2/" + "{{ auth_server_id }}"]
+  okta_issuer = "https://nd.okta.com/oauth2/" + "{{ auth_server_id }}"
   okta_client_id = "{{ client_id }}"
   okta_client_secret = "{{ client_secret }}"
   okta_auth_server_id = "{{ auth_server_id }}"
