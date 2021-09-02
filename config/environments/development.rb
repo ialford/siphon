@@ -30,6 +30,6 @@ Siphon::Application.configure do
   config.assets.debug = true
 
 
-  config.api_url                          = "https://apipprd.library.nd.edu/"
-  config.api_token                        = "8CfWTb1zyDVs1eXN4npN"
+  config.api_url                        = "https://api.library.nd.edu/"
+  config.api_token                      = "nDKg6F8dAcUkCdzzFqc5"
 end

@@ -20,6 +20,9 @@ sed -i 's/{{ secret_key_base }}/'"$SECRET_KEY_BASE"'/g' "$APP_DIR/config/secrets
 echo "Modify config file for HOST secrets"
 sed -i 's/{{ host_name }}/'"$HOST_NAME"'/g' "$APP_DIR/config/secrets.yml"
 
-echo "Start Passenger Service as $PASSENGER_RUN_ENV"
+echo "Modify webapp config file for PASSENGER_APP_ENV setting"
+sed -i 's/{{ passenger_app_env }}/'"$PASSENGER_APP_ENV"'/g' "/etc/nginx/sites-enabled/webapp.conf"
+
+echo "Start Passenger Service as $PASSENGER_APP_ENV"
 exec /sbin/my_init
 

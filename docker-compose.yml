@@ -19,6 +19,7 @@ services:
       CLIENT_SECRET: ${CLIENT_SECRET}
       HOST_NAME: ${HOST_NAME}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      PASSENGER_APP_ENV: ${PASSENGER_APP_ENV}
   mysql:
     build:
       context: .
