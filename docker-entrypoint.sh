@@ -17,11 +17,6 @@ sed -i 's/{{ client_id }}/'"$CLIENT_ID"'/g' "$APP_DIR/config/secrets.yml"
 sed -i 's/{{ client_secret }}/'"$CLIENT_SECRET"'/g' "$APP_DIR/config/secrets.yml"
 sed -i 's/{{ secret_key_base }}/'"$SECRET_KEY_BASE"'/g' "$APP_DIR/config/secrets.yml"
 
-# echo "Modify devise.rb file for secrets"
-# sed -i 's/{{ auth_server_id }}/'"$AUTH_SERVER_ID"'/g' "$APP_DIR/config/initializers/devise.rb"
-# sed -i 's/{{ client_id }}/'"$CLIENT_ID"'/g' "$APP_DIR/config/initializers/devise.rb"
-# sed -i 's/{{ client_secret }}/'"$CLIENT_SECRET"'/g' "$APP_DIR/config/initializers/devise.rb"
-
 echo "Modify config file for HOST secrets"
 sed -i 's/{{ host_name }}/'"$HOST_NAME"'/g' "$APP_DIR/config/secrets.yml"
 
