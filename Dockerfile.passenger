@@ -2,6 +2,7 @@ FROM phusion/passenger-full:1.0.19
 
 # Update and install sudo, shared-mime-info to prevent mimemagic errors, postfix to prevent MTA errors
 RUN apt-get update && apt-get install -y sudo ca-certificates shared-mime-info postfix libcurl4-openssl-dev
+RUN apt-get upgrade -y ca-certificates
 
 # Set correct environment variables.
 ENV HOME /home
